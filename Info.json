@@ -1,0 +1,9 @@
+{
+  "Id": "JudgmentTextChanger",
+  "DisplayName": "Judgment Text Changer",
+  "Author": "Dwenjang (updated)",
+  "Version": "2.0.0",
+  "ManagerVersion": "0.27.0.0",
+  "AssemblyName": "JudgmentTextChanger.dll",
+  "EntryMethod": "JudgmentTextChanger.Main.Load"
+}

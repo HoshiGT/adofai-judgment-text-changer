@@ -1,0 +1,17 @@
+# Build output
+bin/
+obj/
+*.dll
+*.pdb
+*.cache
+*.user
+
+# IDE
+.vs/
+.idea/
+.vscode/
+
+# Python helper env (not part of the mod)
+.venv/
+__pycache__/
+*.pyc
