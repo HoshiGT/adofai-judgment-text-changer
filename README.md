@@ -24,8 +24,9 @@ unchanged — only the text component type changed. This build sets the text on 
 ## Features
 
 - Override any of the 7 timing judgments: Too Early, Very Early, Early Perfect,
-  Perfect, Late Perfect, Very Late, Too Late.
-- Leave a field blank to keep the game's original (localized) text.
+  Perfect, Late Perfect, Very Late, Too Late. Each field is pre-filled with the
+  default judgment text — edit it to taste.
+- Leave a field blank to hide that judgment's text entirely (show nothing).
 - In-game settings UI with a **中文 / English** language switch.
 - Settings persist to `Settings.xml` via UMM.
 
@@ -61,8 +62,11 @@ text per judgment, and click **Save**.
 判定文字组件换成了 `TMPro.TextMeshPro`，旧补丁因此抛异常失效。方法 `Init`、字段
 `hitMargin`、枚举 `HitMargin` 都没变，本版改为操作 `TextMeshPro` 组件。
 
-**功能**：自定义 7 个判定文字；留空保持游戏原文；界面支持 **中文 / English** 切换；
-设置自动保存。
+**功能**：自定义 7 个判定文字（输入框已预填默认文字，可直接修改）；某个框留空 =
+该判定不显示任何文字；界面支持 **中文 / English** 切换；设置自动保存。
+
+> 注：「太快！」「太慢！」各有两档——`Too Early/Very Late` 与 `Very Early/Too Late`，
+> 区别在于是否走到了下一个格子，可在界面标签中看到说明。
 
 **安装**：把 `JudgmentTextChanger.dll` 和 `Info.json` 放进 `<游戏目录>/Mods/JudgmentTextChanger/`，
 进游戏按 `Ctrl+F10` 打开 UMM，选 **Judgment Text Changer** 填字、点 Save。

@@ -19,8 +19,9 @@ namespace JudgmentTextChanger
             if (Main.settings == null) return;
 
             string custom = Main.settings.GetText(hitMargin);
-            if (custom == null) return; // 该判定未设置自定义文字，保持原样
+            if (custom == null) return; // 不是我们处理的判定（如 Miss），保持游戏原样
 
+            // custom 为 "" 时表示该判定不显示任何文字
             var tmp = fText.GetValue(__instance) as TMP_Text;
             if (tmp != null)
                 tmp.text = custom;

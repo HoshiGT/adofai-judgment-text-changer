@@ -15,20 +15,21 @@ namespace JudgmentTextChanger
         private static readonly string[] LangNames = { "中文", "English" };
         private static readonly string[] Hint =
         {
-            "留空 = 保持游戏原文。修改后请点击下方 Save 保存。",
-            "Leave blank = keep the game's original text. Click Save below after editing."
+            "右侧为各判定显示的文字，留空 = 不显示该判定文字。修改后请点击下方 Save 保存。",
+            "The text on the right is shown for each judgment. Leave a box blank to hide it. Click Save below after editing."
         };
         private static readonly string[] LangLabel = { "界面语言", "Language" };
-        // 7 个判定的标签：第 0 列中文，第 1 列英文
+        // 7 个判定的标签：第 0 列中文，第 1 列英文。
+        // 太快！/太慢！各有两档：区别在于是否走到了下一个格子。
         private static readonly string[,] Labels =
         {
-            { "太早 (Too Early)",      "Too Early" },
-            { "稍早 (Very Early)",     "Very Early" },
-            { "偏早完美 (EarlyPerfect)","Early Perfect" },
-            { "完美 (Perfect)",        "Perfect" },
-            { "偏晚完美 (LatePerfect)", "Late Perfect" },
-            { "稍晚 (Very Late)",      "Very Late" },
-            { "太晚 (Too Late)",       "Too Late" },
+            { "太快！(走不到下一格 Too Early)", "Too Early (didn't reach tile)" },
+            { "太快！(走到下一格 Very Early)",  "Very Early (reached tile)" },
+            { "稍快！(Early Perfect)",          "Early Perfect" },
+            { "完美！(Perfect)",                "Perfect" },
+            { "稍慢！(Late Perfect)",           "Late Perfect" },
+            { "太慢！(走到下一格 Very Late)",   "Very Late (reached tile)" },
+            { "太慢！(走不到下一格 Too Late)",  "Too Late (overshot tile)" },
         };
 
         // EntryMethod = JudgmentTextChanger.Main.Load
@@ -65,7 +66,7 @@ namespace JudgmentTextChanger
         private static void Row(int index, ref string field)
         {
             GUILayout.BeginHorizontal();
-            GUILayout.Label(Labels[index, Lang], GUILayout.Width(180));
+            GUILayout.Label(Labels[index, Lang], GUILayout.Width(260));
             field = GUILayout.TextField(field ?? "", GUILayout.Width(220));
             GUILayout.EndHorizontal();
         }
